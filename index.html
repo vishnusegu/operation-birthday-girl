@@ -10,9 +10,38 @@
 :root{--pink:#df7f9f;--hot:#c95f86;--ink:#513844;--muted:#90747f;--cream:#fffaf7;--blush:#fff0f5;--line:#f4dce5;--shadow:0 18px 55px rgba(179,112,141,.13)}
 *{box-sizing:border-box} body{margin:0;background:radial-gradient(ellipse at 15% 0%,#ffe7ef 0,transparent 40%),radial-gradient(ellipse at 100% 35%,#fff0e5 0,transparent 35%),var(--cream);color:var(--ink);font-family:'DM Sans',sans-serif;overflow-x:hidden}
 main{width:min(920px,92vw);margin:auto;padding:28px 0 60px;position:relative;z-index:1}.topline{text-align:center;color:var(--hot);font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700}.hero{text-align:center;padding:38px 18px 22px}.eyebrow{display:inline-block;background:#fff;border:1px solid var(--line);padding:9px 15px;border-radius:999px;font-size:13px;color:var(--hot);box-shadow:0 5px 18px #dba9ba20}.hero h1{font-family:'Playfair Display',serif;font-size:clamp(38px,8vw,75px);line-height:1.05;margin:20px 0 14px;font-weight:600;letter-spacing:-.04em}.hero h1 span{color:var(--hot)}.subtitle{color:var(--muted);font-size:16px;max-width:550px;margin:auto;line-height:1.7}.timer-wrap{background:#fff;border:1px solid var(--line);border-radius:28px;padding:25px 18px;margin:24px auto;max-width:660px;box-shadow:var(--shadow)}.timer-title{text-align:center;font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin-bottom:17px}.timer{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.timebox{background:var(--blush);border-radius:18px;padding:14px 8px;text-align:center}.num{font-family:'Playfair Display',serif;font-size:clamp(28px,5vw,43px);font-weight:600;color:var(--hot);line-height:1}.unit{font-size:11px;color:var(--muted);margin-top:6px;letter-spacing:.08em;text-transform:uppercase}.tiny-note{text-align:center;color:var(--muted);font-size:13px;margin:17px 0 0}.btn{border:0;cursor:pointer;border-radius:999px;background:var(--hot);color:white;padding:14px 22px;font:600 14px 'DM Sans';box-shadow:0 9px 22px #c95f8633;transition:transform .18s,box-shadow .18s}.btn:hover{transform:translateY(-2px);box-shadow:0 13px 25px #c95f8640}.btn.secondary{background:#fff;color:var(--hot);border:1px solid var(--line);box-shadow:none}.center{text-align:center;margin:18px}.section{margin:38px 0}.section-heading{text-align:center;margin-bottom:17px}.section-heading h2{font-family:'Playfair Display',serif;font-size:30px;margin:0 0 7px}.section-heading p{color:var(--muted);font-size:14px;margin:0}.card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:22px;box-shadow:var(--shadow)}.daily{max-width:660px;margin:auto;text-align:center;min-height:146px;display:flex;flex-direction:column;align-items:center;justify-content:center}.daily .daylabel{font-size:11px;text-transform:uppercase;letter-spacing:.13em;color:var(--pink);font-weight:700}.daily p{font-family:'Playfair Display',serif;font-size:21px;line-height:1.55;margin:12px 0 5px}.daily small{color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.unlock{min-height:170px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;cursor:pointer;transition:transform .2s}.unlock:hover{transform:translateY(-3px)}.unlock .emoji{font-size:32px;margin-bottom:10px}.unlock h3{margin:0 0 5px;font-size:16px}.unlock p{margin:0;font-size:13px;color:var(--muted)}.locked{opacity:.74;cursor:default}.locked:hover{transform:none}.footer{text-align:center;color:var(--muted);font-size:12px;margin-top:40px}.footer strong{color:var(--hot)}.modal-backdrop{position:fixed;inset:0;background:#4b263a66;display:none;align-items:center;justify-content:center;padding:20px;z-index:10}.modal-backdrop.show{display:flex}.modal{max-width:440px;width:100%;background:var(--cream);border:1px solid var(--line);border-radius:25px;padding:27px;text-align:center;box-shadow:0 25px 80px #421a3240;animation:pop .25s ease}.modal h3{font-family:'Playfair Display',serif;font-size:27px;margin:5px 0 10px}.modal p{line-height:1.7;color:var(--muted)}.close{margin-top:12px}.heart{position:fixed;pointer-events:none;z-index:0;opacity:.25;animation:float 7s ease-in-out infinite;font-size:22px}.heart:nth-child(1){top:16%;left:5%}.heart:nth-child(2){top:52%;right:6%;animation-delay:1s}.heart:nth-child(3){bottom:12%;left:9%;animation-delay:2s}.heart:nth-child(4){top:30%;right:12%;animation-delay:3s}@keyframes float{0%,100%{transform:translateY(0) rotate(-6deg)}50%{transform:translateY(-15px) rotate(6deg)}}@keyframes pop{from{transform:scale(.92);opacity:0}to{transform:scale(1);opacity:1}}@media(max-width:650px){main{padding-top:20px}.hero{padding-top:25px}.grid{grid-template-columns:1fr 1fr}.card{padding:17px}.unlock{min-height:145px}.timer-wrap{padding:19px 12px}.timer{gap:7px}.timebox{padding:12px 4px;border-radius:13px}.daily p{font-size:19px}}@media(max-width:390px){.grid{grid-template-columns:1fr}.timer{gap:5px}}
+
+/* Day 1: secret birthday-girl entry screen */
+.entry-screen{position:fixed;inset:0;z-index:20;display:flex;align-items:center;justify-content:center;padding:22px;background:radial-gradient(ellipse at 20% 10%,#ffe3ee 0,transparent 45%),radial-gradient(ellipse at 90% 90%,#ffefe2 0,transparent 45%),#fffaf7;transition:opacity .55s ease,visibility .55s ease}
+.entry-screen.hidden{opacity:0;visibility:hidden;pointer-events:none}
+.entry-card{width:min(520px,94vw);text-align:center;background:#fff;border:1px solid var(--line);border-radius:30px;padding:clamp(24px,6vw,42px);box-shadow:0 24px 70px rgba(179,112,141,.18);animation:pop .35s ease}
+.entry-stamp{font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:var(--hot);font-weight:700}
+.entry-card h2{font-family:'Playfair Display',serif;font-size:clamp(30px,7vw,43px);line-height:1.1;margin:14px 0;color:var(--ink)}
+.entry-card p{color:var(--muted);line-height:1.75;margin:0 auto 22px;max-width:410px}
+.entry-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.entry-no{background:#fff;color:var(--hot);border:1px solid var(--line);box-shadow:none}
+.entry-reply{min-height:24px;color:var(--hot);font-size:13px;margin-top:15px;font-weight:600}
+.entry-hearts{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.entry-hearts span{position:absolute;font-size:20px;opacity:.25;animation:float 6s ease-in-out infinite}
+.entry-hearts span:nth-child(1){left:8%;top:20%}.entry-hearts span:nth-child(2){right:10%;top:25%;animation-delay:1s}.entry-hearts span:nth-child(3){left:15%;bottom:15%;animation-delay:2s}.entry-hearts span:nth-child(4){right:14%;bottom:18%;animation-delay:3s}
+@media(max-width:480px){.entry-card{border-radius:24px}.entry-actions .btn{width:100%}}
+
 </style>
 </head>
 <body>
+<div class="entry-screen" id="entryScreen" role="dialog" aria-label="Secret birthday entry">
+  <div class="entry-hearts" aria-hidden="true"><span>♡</span><span>✦</span><span>♡</span><span>✧</span></div>
+  <div class="entry-card">
+    <div class="entry-stamp">🚨 Top secret entry 🚨</div>
+    <h2>Are you really<br>the birthday girl?</h2>
+    <p>This website contains excessive amounts of affection, nonsense, and one slightly annoying human. Proceed only if you are the certified cutie.</p>
+    <div class="entry-actions">
+      <button class="btn" id="entryYes">Yes, obviously 💅</button>
+      <button class="btn entry-no" id="entryNo">No, I came for snacks 🍰</button>
+    </div>
+    <div class="entry-reply" id="entryReply" aria-live="polite"></div>
+  </div>
+</div>
 <div class="heart">♡</div><div class="heart">✦</div><div class="heart">♡</div><div class="heart">✧</div>
 <main>
   <div class="topline">a tiny website • a very big secret</div>
@@ -48,6 +77,19 @@ main{width:min(920px,92vw);margin:auto;padding:28px 0 60px;position:relative;z-i
 </main>
 <div class="modal-backdrop" id="modalBackdrop"><div class="modal"><div id="modalEmoji" style="font-size:38px">💌</div><h3 id="modalTitle">A message for you</h3><p id="modalText"></p><button class="btn close" id="closeModal">Close (for now) ♡</button></div></div>
 <script>
+
+// Day 1 welcome gate
+const entryScreen=document.getElementById('entryScreen');
+const entryReply=document.getElementById('entryReply');
+document.getElementById('entryYes').onclick=()=>{
+  entryReply.textContent='Identity verified. Cuteness levels dangerously high. 💗';
+  document.getElementById('entryYes').textContent='Verified! 💖';
+  setTimeout(()=>entryScreen.classList.add('hidden'),650);
+};
+document.getElementById('entryNo').onclick=()=>{
+  entryReply.textContent='Wrong answer 😂 Nice try. You are STILL the birthday girl. Try again!';
+};
+
 // Birthday assumed: 23 December 2026. Change BIRTHDAY below if needed.
 const BIRTHDAY = new Date('2026-12-23T00:00:00');
 const START = new Date('2026-11-23T00:00:00');
