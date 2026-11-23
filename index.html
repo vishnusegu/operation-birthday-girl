@@ -26,6 +26,16 @@ main{width:min(920px,92vw);margin:auto;padding:28px 0 60px;position:relative;z-i
 .entry-hearts span:nth-child(1){left:8%;top:20%}.entry-hearts span:nth-child(2){right:10%;top:25%;animation-delay:1s}.entry-hearts span:nth-child(3){left:15%;bottom:15%;animation-delay:2s}.entry-hearts span:nth-child(4){right:14%;bottom:18%;animation-delay:3s}
 @media(max-width:480px){.entry-card{border-radius:24px}.entry-actions .btn{width:100%}}
 
+/* Day 2: Compliment Roulette */
+.roulette-card{max-width:660px;margin:auto;text-align:center;position:relative;overflow:hidden}
+.roulette-card h3{font-family:'Playfair Display',serif;font-size:25px;margin:4px 0 10px}
+.roulette-card .intro{color:var(--muted);line-height:1.6;margin:0 0 16px}
+.compliment-text{min-height:84px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:20px;line-height:1.55;color:var(--hot);padding:10px 4px;transition:opacity .2s}
+.roulette-btn{margin-top:5px}
+.heart-pop{position:absolute;pointer-events:none;animation:heartPop 1s ease-out forwards;font-size:22px}
+@keyframes heartPop{0%{opacity:0;transform:translateY(8px) scale(.5)}20%{opacity:1}100%{opacity:0;transform:translateY(-48px) scale(1.25)}}
+@media(max-width:650px){.compliment-text{font-size:19px;min-height:100px}}
+
 </style>
 </head>
 <body>
@@ -65,6 +75,16 @@ main{width:min(920px,92vw);margin:auto;padding:28px 0 60px;position:relative;z-i
     <div class="section-heading"><h2>Today's little message 💌</h2><p>New day, new nonsense. Love, your favourite headache.</p></div>
     <div class="card daily"><div class="daylabel" id="dayLabel">Countdown day</div><p id="dailyMessage">Loading your daily dose of affection and questionable humour...</p><small>Come back tomorrow. I have a schedule now apparently.</small></div>
   </section>
+  <section class="section" id="complimentRoulette">
+    <div class="section-heading"><h2>A little happiness dispenser 🎀</h2><p>Feeling a little meh? Or just want attention? 👀</p></div>
+    <div class="card roulette-card" id="rouletteCard">
+      <h3>Unlimited compliments. Unfortunately for you.</h3>
+      <p class="intro">Tap the button whenever you need a tiny reminder of how wonderful you are.</p>
+      <div class="compliment-text" id="complimentText" aria-live="polite">Your compliment is waiting. Go on, tap it. 💌</div>
+      <button class="btn roulette-btn" id="complimentBtn">Compliment me 🎀</button>
+    </div>
+  </section>
+
   <section class="section">
     <div class="section-heading"><h2>Things you may click 👀</h2><p>Some are ready. Some are being suspiciously prepared.</p></div>
     <div class="grid">
@@ -129,6 +149,24 @@ const pad=n=>String(n).padStart(2,'0');
 function updateCountdown(){const now=new Date();let diff=BIRTHDAY-now;if(diff<0)diff=0;const d=Math.floor(diff/86400000),h=Math.floor(diff/3600000)%24,m=Math.floor(diff/60000)%60,s=Math.floor(diff/1000)%60;document.getElementById('days').textContent=pad(d);document.getElementById('hours').textContent=pad(h);document.getElementById('minutes').textContent=pad(m);document.getElementById('seconds').textContent=pad(s);if(diff===0)document.getElementById('countdownNote').textContent='IT IS YOUR DAY!! 🎂';}
 function dailyMessage(){const now=new Date();const day=Math.max(0,Math.floor((new Date(now.getFullYear(),now.getMonth(),now.getDate())-START)/86400000));const index=Math.min(day,messages.length-1);document.getElementById('dayLabel').textContent=`Countdown day ${Math.min(day+1,30)} ♡`;document.getElementById('dailyMessage').textContent=messages[index]||messages[0];}
 updateCountdown();dailyMessage();setInterval(updateCountdown,1000);
+// Day 2: Compliment Roulette (no consecutive repeats)
+const compliments=[
+  "Your smile is a public service. I am the president of its fan club.",
+  "You are someone's favourite part of every day. Guess who? 👀",
+  "If cuteness were illegal, you would be working overtime in jail.",
+  "You make my ordinary days suspiciously special.",
+  "In case today forgot to tell you: you are doing better than you think, cutie.",
+  "You have no idea how effortlessly you make someone's day better. Someone = me, obviously.",
+  "You deserve a hug right now. This website can't deliver one. I can, though. 🤭",
+  "Out of all the people in this world, my brain picked you and refuses to reconsider.",
+  "Your laugh is dangerously effective. I have absolutely no defence.",
+  "Tiny reminder: you are pretty, precious, and very much appreciated. ♡"
+];
+let lastCompliment=-1;
+const complimentText=document.getElementById('complimentText');
+function popHearts(){const card=document.getElementById('rouletteCard');['♡','💗','✦'].forEach((symbol,i)=>{const heart=document.createElement('span');heart.className='heart-pop';heart.textContent=symbol;heart.style.left=(35+i*15)+'%';heart.style.top='65%';heart.style.animationDelay=(i*.08)+'s';card.appendChild(heart);setTimeout(()=>heart.remove(),1100);});}
+document.getElementById('complimentBtn').onclick=()=>{let next;do{next=Math.floor(Math.random()*compliments.length)}while(next===lastCompliment);lastCompliment=next;complimentText.style.opacity='0';setTimeout(()=>{complimentText.textContent=compliments[next];complimentText.style.opacity='1';},150);popHearts();};
+
 const backdrop=document.getElementById('modalBackdrop');function showModal(emoji,title,txt){document.getElementById('modalEmoji').textContent=emoji;document.getElementById('modalTitle').textContent=title;document.getElementById('modalText').textContent=txt;backdrop.classList.add('show')}function closeModal(){backdrop.classList.remove('show')}
 document.getElementById('welcomeBtn').onclick=()=>showModal('🙃','Welcome to the nonsense','This website exists because I wanted to make you smile before your birthday. I will be adding little things as the countdown goes on. You are not allowed to interrogate the birthday department.');document.getElementById('reasonCard').onclick=()=>showModal('💗','Reason #1','You have this way of making a normal day feel better just by being part of it. And yes, I am being cheesy. Let me live.');document.getElementById('mysteryCard').onclick=()=>showModal('🎁','Not yet, detective!','This box is currently under extremely secret construction. Come back later. Your curiosity is noted and mildly encouraged.');document.getElementById('secretCard').onclick=()=>showModal('🔐','Classified information','Access denied. The birthday committee has confiscated this message. Try again closer to the big day.');document.getElementById('closeModal').onclick=closeModal;backdrop.onclick=e=>{if(e.target===backdrop)closeModal()};document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
 </script>
