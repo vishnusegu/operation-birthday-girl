@@ -52,6 +52,17 @@ main{width:min(920px,92vw);margin:auto;padding:28px 0 60px;position:relative;z-i
 @keyframes crownPop{0%{transform:scale(.4) rotate(-18deg);opacity:0}65%{transform:scale(1.25) rotate(8deg);opacity:1}100%{transform:scale(1) rotate(0)}}
 @media(max-width:480px){.mood-actions .btn,.royal-bottom .btn{width:100%}.royal-result{font-size:17px}}
 
+/* Day 6: Birthday Girl Fortune Teller */
+.fortune-card{max-width:660px;margin:auto;text-align:center;background:linear-gradient(145deg,#fff 0%,#fff5fa 60%,#fffaf4 100%);overflow:hidden}
+.fortune-orb{font-size:48px;display:inline-block;margin:4px 0 8px;filter:drop-shadow(0 5px 10px #d98aa544)}
+.fortune-card h3{font-family:'Playfair Display',serif;font-size:25px;margin:4px 0 9px}
+.fortune-card .fortune-intro{color:var(--muted);line-height:1.65;max-width:500px;margin:0 auto 15px}
+.fortune-result{min-height:92px;display:flex;align-items:center;justify-content:center;margin:14px auto;padding:16px;border-radius:18px;background:var(--blush);color:var(--hot);font-family:'Playfair Display',serif;font-size:20px;line-height:1.55;transition:transform .25s,opacity .25s}
+.fortune-result.reveal{animation:fortuneReveal .55s ease}
+@keyframes fortuneReveal{0%{opacity:0;transform:translateY(10px) scale(.96)}65%{opacity:1;transform:translateY(-2px) scale(1.02)}100%{transform:translateY(0) scale(1)}}
+.fortune-btn{margin-top:4px}
+@media(max-width:650px){.fortune-result{font-size:18px;min-height:105px}}
+
 </style>
 </head>
 <body>
@@ -120,6 +131,17 @@ main{width:min(920px,92vw);margin:auto;padding:28px 0 60px;position:relative;z-i
         <button class="btn secondary" id="privilegeBtn">Reveal today's royal privilege 🎁</button>
       </div>
       <div class="royal-result" id="privilegeResult" aria-live="polite" hidden></div>
+    </div>
+  </section>
+
+  <section class="section" id="fortuneTeller">
+    <div class="section-heading"><h2>The Birthday Girl's Fortune Teller 🔮</h2><p>A tiny prediction from the universe. The universe is suspiciously on your side.</p></div>
+    <div class="card fortune-card">
+      <div class="fortune-orb" id="fortuneOrb" aria-hidden="true">🔮</div>
+      <h3>What does today have in store?</h3>
+      <p class="fortune-intro">Tap below to reveal your very official, slightly questionable fortune for today.</p>
+      <div class="fortune-result" id="fortuneResult" aria-live="polite">Your fortune is hiding in the stars. Ready to peek? ✨</div>
+      <button class="btn fortune-btn" id="fortuneBtn">Reveal my fortune ✨</button>
     </div>
   </section>
 
@@ -225,6 +247,20 @@ const royalPrivileges=[
 ];
 const privilegeDay=Math.floor((new Date(new Date().toLocaleString('en-US',{timeZone:'Asia/Kolkata'})).setHours(0,0,0,0)-START.getTime())/86400000);
 document.getElementById('privilegeBtn').onclick=()=>{const result=document.getElementById('privilegeResult');result.hidden=false;result.textContent=royalPrivileges[((Math.max(0,privilegeDay))%royalPrivileges.length)];};
+
+// Day 6: Birthday Girl Fortune Teller (no consecutive repeats)
+const fortunes=[
+  "Someone is planning something for you. This someone is terrible at keeping secrets. 🎁",
+  "Today's prediction: you will look unnecessarily pretty and cause at least one person to forget what they were saying. 👑",
+  "A delicious meal is approaching your destiny. Choose wisely. 🍟",
+  "You will receive an unexpected dose of affection. Complaints will not be accepted. 💗",
+  "The stars recommend rest, snacks, and absolutely zero guilt. 💤",
+  "Your future contains a surprise. The fortune teller has been bribed into silence. 🤫",
+  "A tiny win is on its way. Celebrate it like the headline news it deserves. ✨",
+  "Today is a good day to be unapologetically yourself. The universe has excellent taste. 🌷"
+];
+let lastFortune=-1;
+document.getElementById('fortuneBtn').onclick=()=>{let pick;do{pick=Math.floor(Math.random()*fortunes.length)}while(pick===lastFortune);lastFortune=pick;const result=document.getElementById('fortuneResult');result.classList.remove('reveal');void result.offsetWidth;result.textContent=fortunes[pick];result.classList.add('reveal');const orb=document.getElementById('fortuneOrb');orb.classList.remove('crown-pop');void orb.offsetWidth;orb.classList.add('crown-pop');};
 
 const backdrop=document.getElementById('modalBackdrop');function showModal(emoji,title,txt){document.getElementById('modalEmoji').textContent=emoji;document.getElementById('modalTitle').textContent=title;document.getElementById('modalText').textContent=txt;backdrop.classList.add('show')}function closeModal(){backdrop.classList.remove('show')}
 document.getElementById('welcomeBtn').onclick=()=>showModal('🙃','Welcome to the nonsense','This website exists because I wanted to make you smile before your birthday. I will be adding little things as the countdown goes on. You are not allowed to interrogate the birthday department.');document.getElementById('reasonCard').onclick=()=>showModal('💗','Reason #1','You have this way of making a normal day feel better just by being part of it. And yes, I am being cheesy. Let me live.');document.getElementById('mysteryCard').onclick=()=>showModal('🎁','Not yet, detective!','This box is currently under extremely secret construction. Come back later. Your curiosity is noted and mildly encouraged.');document.getElementById('secretCard').onclick=()=>showModal('🔐','Classified information','Access denied. The birthday committee has confiscated this message. Try again closer to the big day.');document.getElementById('closeModal').onclick=closeModal;backdrop.onclick=e=>{if(e.target===backdrop)closeModal()};document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
