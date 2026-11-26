@@ -63,6 +63,14 @@ main{width:min(920px,92vw);margin:auto;padding:28px 0 60px;position:relative;z-i
 .fortune-btn{margin-top:4px}
 @media(max-width:650px){.fortune-result{font-size:18px;min-height:105px}}
 
+
+/* Day 7: The Birthday Girl's Little Museum */
+.museum-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;max-width:760px;margin:auto}
+.museum-exhibit{min-height:165px;text-align:center;display:flex;flex-direction:column;justify-content:center;align-items:center;cursor:pointer;transition:transform .2s,box-shadow .2s;background:linear-gradient(145deg,#fff,#fff6fa)}
+.museum-exhibit:hover{transform:translateY(-4px);box-shadow:0 18px 40px #dba9ba30}
+.museum-exhibit .emoji{font-size:32px;margin-bottom:9px}.museum-exhibit h3{margin:0 0 6px;font-size:16px}.museum-exhibit p{margin:0;color:var(--muted);font-size:13px}
+@media(max-width:390px){.museum-grid{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
@@ -153,6 +161,17 @@ main{width:min(920px,92vw);margin:auto;padding:28px 0 60px;position:relative;z-i
       <div class="card unlock locked" id="secretCard"><div class="emoji">🔐</div><h3>Top secret</h3><p>Definitely not suspicious</p></div>
     </div>
   </section>
+
+  <section class="section" id="littleMuseum">
+    <div class="section-heading"><h2>The Birthday Girl's Little Museum 🏛️</h2><p>Four exhibits. One very special human. Tap an exhibit to read its tiny plaque ♡</p></div>
+    <div class="museum-grid">
+      <div class="card museum-exhibit" id="smileExhibit"><div class="emoji">🌷</div><h3>The Smile Collection</h3><p>Rare exhibits. Extremely contagious happiness.</p></div>
+      <div class="card museum-exhibit" id="prettyExhibit"><div class="emoji">👑</div><h3>The Pretty Privilege</h3><p>Effortlessly unfair levels of pretty.</p></div>
+      <div class="card museum-exhibit" id="softExhibit"><div class="emoji">🧸</div><h3>The Softness Archive</h3><p>Some mysteries remain undiscovered.</p></div>
+      <div class="card museum-exhibit" id="chaosExhibit"><div class="emoji">✨</div><h3>The Chaos Department</h3><p>Management is… you. Obviously.</p></div>
+    </div>
+  </section>
+
   <div class="footer">Made with <strong>♡</strong>, a little mischief, and an unreasonable amount of excitement.</div>
 </main>
 <div class="modal-backdrop" id="modalBackdrop"><div class="modal"><div id="modalEmoji" style="font-size:38px">💌</div><h3 id="modalTitle">A message for you</h3><p id="modalText"></p><button class="btn close" id="closeModal">Close (for now) ♡</button></div></div>
@@ -263,7 +282,14 @@ let lastFortune=-1;
 document.getElementById('fortuneBtn').onclick=()=>{let pick;do{pick=Math.floor(Math.random()*fortunes.length)}while(pick===lastFortune);lastFortune=pick;const result=document.getElementById('fortuneResult');result.classList.remove('reveal');void result.offsetWidth;result.textContent=fortunes[pick];result.classList.add('reveal');const orb=document.getElementById('fortuneOrb');orb.classList.remove('crown-pop');void orb.offsetWidth;orb.classList.add('crown-pop');};
 
 const backdrop=document.getElementById('modalBackdrop');function showModal(emoji,title,txt){document.getElementById('modalEmoji').textContent=emoji;document.getElementById('modalTitle').textContent=title;document.getElementById('modalText').textContent=txt;backdrop.classList.add('show')}function closeModal(){backdrop.classList.remove('show')}
-document.getElementById('welcomeBtn').onclick=()=>showModal('🙃','Welcome to the nonsense','This website exists because I wanted to make you smile before your birthday. I will be adding little things as the countdown goes on. You are not allowed to interrogate the birthday department.');document.getElementById('reasonCard').onclick=()=>showModal('💗','Reason #1','You have this way of making a normal day feel better just by being part of it. And yes, I am being cheesy. Let me live.');document.getElementById('mysteryCard').onclick=()=>showModal('🎁','Not yet, detective!','This box is currently under extremely secret construction. Come back later. Your curiosity is noted and mildly encouraged.');document.getElementById('secretCard').onclick=()=>showModal('🔐','Classified information','Access denied. The birthday committee has confiscated this message. Try again closer to the big day.');document.getElementById('closeModal').onclick=closeModal;backdrop.onclick=e=>{if(e.target===backdrop)closeModal()};document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+document.getElementById('welcomeBtn').onclick=()=>showModal('🙃','Welcome to the nonsense','This website exists because I wanted to make you smile before your birthday. I will be adding little things as the countdown goes on. You are not allowed to interrogate the birthday department.');document.getElementById('reasonCard').onclick=()=>showModal('💗','Reason #1','You have this way of making a normal day feel better just by being part of it. And yes, I am being cheesy. Let me live.');document.getElementById('mysteryCard').onclick=()=>showModal('🎁','Not yet, detective!','This box is currently under extremely secret construction. Come back later. Your curiosity is noted and mildly encouraged.');document.getElementById('secretCard').onclick=()=>showModal('🔐','Classified information','Access denied. The birthday committee has confiscated this message. Try again closer to the big day.');
+// Day 7: Museum exhibit cards (text-only, no photos)
+document.getElementById('smileExhibit').onclick=()=>showModal('🌷','The Smile Collection','Some smiles make times brighter, some smiles make life happier. But yours does both — it makes me happy, makes me smile, and makes everything brighter.');
+document.getElementById('prettyExhibit').onclick=()=>showModal('👑','The Pretty Privilege','People have to try hard to look pretty, but then there’s you, looking pretty without even trying. And somehow, you make me look pretty just by being with you.');
+document.getElementById('softExhibit').onclick=()=>showModal('🧸','The Softness Archive','Hehe… yet to be found 😊');
+document.getElementById('chaosExhibit').onclick=()=>showModal('✨','The Chaos Department','Your head of itttt, cutieee 😂');
+
+document.getElementById('closeModal').onclick=closeModal;backdrop.onclick=e=>{if(e.target===backdrop)closeModal()};document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
 </script>
 </body>
 </html>
