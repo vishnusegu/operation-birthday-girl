@@ -11,82 +11,12 @@
 *{box-sizing:border-box} body{margin:0;background:radial-gradient(ellipse at 15% 0%,#ffe7ef 0,transparent 40%),radial-gradient(ellipse at 100% 35%,#fff0e5 0,transparent 35%),var(--cream);color:var(--ink);font-family:'DM Sans',sans-serif;overflow-x:hidden}
 main{width:min(920px,92vw);margin:auto;padding:28px 0 60px;position:relative;z-index:1}.topline{text-align:center;color:var(--hot);font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700}.hero{text-align:center;padding:38px 18px 22px}.eyebrow{display:inline-block;background:#fff;border:1px solid var(--line);padding:9px 15px;border-radius:999px;font-size:13px;color:var(--hot);box-shadow:0 5px 18px #dba9ba20}.hero h1{font-family:'Playfair Display',serif;font-size:clamp(38px,8vw,75px);line-height:1.05;margin:20px 0 14px;font-weight:600;letter-spacing:-.04em}.hero h1 span{color:var(--hot)}.subtitle{color:var(--muted);font-size:16px;max-width:550px;margin:auto;line-height:1.7}.timer-wrap{background:#fff;border:1px solid var(--line);border-radius:28px;padding:25px 18px;margin:24px auto;max-width:660px;box-shadow:var(--shadow)}.timer-title{text-align:center;font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin-bottom:17px}.timer{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.timebox{background:var(--blush);border-radius:18px;padding:14px 8px;text-align:center}.num{font-family:'Playfair Display',serif;font-size:clamp(28px,5vw,43px);font-weight:600;color:var(--hot);line-height:1}.unit{font-size:11px;color:var(--muted);margin-top:6px;letter-spacing:.08em;text-transform:uppercase}.tiny-note{text-align:center;color:var(--muted);font-size:13px;margin:17px 0 0}.btn{border:0;cursor:pointer;border-radius:999px;background:var(--hot);color:white;padding:14px 22px;font:600 14px 'DM Sans';box-shadow:0 9px 22px #c95f8633;transition:transform .18s,box-shadow .18s}.btn:hover{transform:translateY(-2px);box-shadow:0 13px 25px #c95f8640}.btn.secondary{background:#fff;color:var(--hot);border:1px solid var(--line);box-shadow:none}.center{text-align:center;margin:18px}.section{margin:38px 0}.section-heading{text-align:center;margin-bottom:17px}.section-heading h2{font-family:'Playfair Display',serif;font-size:30px;margin:0 0 7px}.section-heading p{color:var(--muted);font-size:14px;margin:0}.card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:22px;box-shadow:var(--shadow)}.daily{max-width:660px;margin:auto;text-align:center;min-height:146px;display:flex;flex-direction:column;align-items:center;justify-content:center}.daily .daylabel{font-size:11px;text-transform:uppercase;letter-spacing:.13em;color:var(--pink);font-weight:700}.daily p{font-family:'Playfair Display',serif;font-size:21px;line-height:1.55;margin:12px 0 5px}.daily small{color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.unlock{min-height:170px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;cursor:pointer;transition:transform .2s}.unlock:hover{transform:translateY(-3px)}.unlock .emoji{font-size:32px;margin-bottom:10px}.unlock h3{margin:0 0 5px;font-size:16px}.unlock p{margin:0;font-size:13px;color:var(--muted)}.locked{opacity:.74;cursor:default}.locked:hover{transform:none}.footer{text-align:center;color:var(--muted);font-size:12px;margin-top:40px}.footer strong{color:var(--hot)}.modal-backdrop{position:fixed;inset:0;background:#4b263a66;display:none;align-items:center;justify-content:center;padding:20px;z-index:10}.modal-backdrop.show{display:flex}.modal{max-width:440px;width:100%;background:var(--cream);border:1px solid var(--line);border-radius:25px;padding:27px;text-align:center;box-shadow:0 25px 80px #421a3240;animation:pop .25s ease}.modal h3{font-family:'Playfair Display',serif;font-size:27px;margin:5px 0 10px}.modal p{line-height:1.7;color:var(--muted)}.close{margin-top:12px}.heart{position:fixed;pointer-events:none;z-index:0;opacity:.25;animation:float 7s ease-in-out infinite;font-size:22px}.heart:nth-child(1){top:16%;left:5%}.heart:nth-child(2){top:52%;right:6%;animation-delay:1s}.heart:nth-child(3){bottom:12%;left:9%;animation-delay:2s}.heart:nth-child(4){top:30%;right:12%;animation-delay:3s}@keyframes float{0%,100%{transform:translateY(0) rotate(-6deg)}50%{transform:translateY(-15px) rotate(6deg)}}@keyframes pop{from{transform:scale(.92);opacity:0}to{transform:scale(1);opacity:1}}@media(max-width:650px){main{padding-top:20px}.hero{padding-top:25px}.grid{grid-template-columns:1fr 1fr}.card{padding:17px}.unlock{min-height:145px}.timer-wrap{padding:19px 12px}.timer{gap:7px}.timebox{padding:12px 4px;border-radius:13px}.daily p{font-size:19px}}@media(max-width:390px){.grid{grid-template-columns:1fr}.timer{gap:5px}}
 
-/* Day 1: secret birthday-girl entry screen */
-.entry-screen{position:fixed;inset:0;z-index:20;display:flex;align-items:center;justify-content:center;padding:22px;background:radial-gradient(ellipse at 20% 10%,#ffe3ee 0,transparent 45%),radial-gradient(ellipse at 90% 90%,#ffefe2 0,transparent 45%),#fffaf7;transition:opacity .55s ease,visibility .55s ease}
-.entry-screen.hidden{opacity:0;visibility:hidden;pointer-events:none}
-.entry-card{width:min(520px,94vw);text-align:center;background:#fff;border:1px solid var(--line);border-radius:30px;padding:clamp(24px,6vw,42px);box-shadow:0 24px 70px rgba(179,112,141,.18);animation:pop .35s ease}
-.entry-stamp{font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:var(--hot);font-weight:700}
-.entry-card h2{font-family:'Playfair Display',serif;font-size:clamp(30px,7vw,43px);line-height:1.1;margin:14px 0;color:var(--ink)}
-.entry-card p{color:var(--muted);line-height:1.75;margin:0 auto 22px;max-width:410px}
-.entry-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-.entry-no{background:#fff;color:var(--hot);border:1px solid var(--line);box-shadow:none}
-.entry-reply{min-height:24px;color:var(--hot);font-size:13px;margin-top:15px;font-weight:600}
-.entry-hearts{position:absolute;inset:0;overflow:hidden;pointer-events:none}
-.entry-hearts span{position:absolute;font-size:20px;opacity:.25;animation:float 6s ease-in-out infinite}
-.entry-hearts span:nth-child(1){left:8%;top:20%}.entry-hearts span:nth-child(2){right:10%;top:25%;animation-delay:1s}.entry-hearts span:nth-child(3){left:15%;bottom:15%;animation-delay:2s}.entry-hearts span:nth-child(4){right:14%;bottom:18%;animation-delay:3s}
-@media(max-width:480px){.entry-card{border-radius:24px}.entry-actions .btn{width:100%}}
-
-/* Day 2: Compliment Roulette */
-.roulette-card{max-width:660px;margin:auto;text-align:center;position:relative;overflow:hidden}
-.roulette-card h3{font-family:'Playfair Display',serif;font-size:25px;margin:4px 0 10px}
-.roulette-card .intro{color:var(--muted);line-height:1.6;margin:0 0 16px}
-.compliment-text{min-height:84px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:20px;line-height:1.55;color:var(--hot);padding:10px 4px;transition:opacity .2s}
-.roulette-btn{margin-top:5px}
-.heart-pop{position:absolute;pointer-events:none;animation:heartPop 1s ease-out forwards;font-size:22px}
-@keyframes heartPop{0%{opacity:0;transform:translateY(8px) scale(.5)}20%{opacity:1}100%{opacity:0;transform:translateY(-48px) scale(1.25)}}
-@media(max-width:650px){.compliment-text{font-size:19px;min-height:100px}}
-
-
-/* Day 4: Birthday Girl Royal Treatment */
-.royal-card{max-width:760px;margin:auto;text-align:center;background:linear-gradient(145deg,#fff 0%,#fff7fa 100%);position:relative;overflow:hidden}
-.royal-crown{font-size:42px;display:block;margin-bottom:6px;filter:drop-shadow(0 5px 8px #d98aa544)}
-.royal-card h3{font-family:'Playfair Display',serif;font-size:25px;margin:4px 0 8px}
-.royal-card .royal-intro{color:var(--muted);line-height:1.65;margin:0 auto 18px;max-width:520px}
-.royal-subtitle{font-size:11px;text-transform:uppercase;letter-spacing:.13em;color:var(--pink);font-weight:700;margin:18px 0 10px}
-.mood-actions{display:flex;justify-content:center;gap:9px;flex-wrap:wrap}
-.mood-actions .btn{padding:11px 16px}
-.royal-result{min-height:54px;max-width:560px;margin:13px auto 0;padding:13px 16px;border-radius:17px;background:var(--blush);color:var(--hot);font-family:'Playfair Display',serif;font-size:18px;line-height:1.5}
-.royal-bottom{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:16px}
-.royal-bottom .btn{min-width:190px}
-.crown-pop{display:inline-block;animation:crownPop .65s ease}
-@keyframes crownPop{0%{transform:scale(.4) rotate(-18deg);opacity:0}65%{transform:scale(1.25) rotate(8deg);opacity:1}100%{transform:scale(1) rotate(0)}}
-@media(max-width:480px){.mood-actions .btn,.royal-bottom .btn{width:100%}.royal-result{font-size:17px}}
-
-/* Day 6: Birthday Girl Fortune Teller */
-.fortune-card{max-width:660px;margin:auto;text-align:center;background:linear-gradient(145deg,#fff 0%,#fff5fa 60%,#fffaf4 100%);overflow:hidden}
-.fortune-orb{font-size:48px;display:inline-block;margin:4px 0 8px;filter:drop-shadow(0 5px 10px #d98aa544)}
-.fortune-card h3{font-family:'Playfair Display',serif;font-size:25px;margin:4px 0 9px}
-.fortune-card .fortune-intro{color:var(--muted);line-height:1.65;max-width:500px;margin:0 auto 15px}
-.fortune-result{min-height:92px;display:flex;align-items:center;justify-content:center;margin:14px auto;padding:16px;border-radius:18px;background:var(--blush);color:var(--hot);font-family:'Playfair Display',serif;font-size:20px;line-height:1.55;transition:transform .25s,opacity .25s}
-.fortune-result.reveal{animation:fortuneReveal .55s ease}
-@keyframes fortuneReveal{0%{opacity:0;transform:translateY(10px) scale(.96)}65%{opacity:1;transform:translateY(-2px) scale(1.02)}100%{transform:translateY(0) scale(1)}}
-.fortune-btn{margin-top:4px}
-@media(max-width:650px){.fortune-result{font-size:18px;min-height:105px}}
-
-
-/* Day 7: The Birthday Girl's Little Museum */
-.museum-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;max-width:760px;margin:auto}
-.museum-exhibit{min-height:165px;text-align:center;display:flex;flex-direction:column;justify-content:center;align-items:center;cursor:pointer;transition:transform .2s,box-shadow .2s;background:linear-gradient(145deg,#fff,#fff6fa)}
-.museum-exhibit:hover{transform:translateY(-4px);box-shadow:0 18px 40px #dba9ba30}
-.museum-exhibit .emoji{font-size:32px;margin-bottom:9px}.museum-exhibit h3{margin:0 0 6px;font-size:16px}.museum-exhibit p{margin:0;color:var(--muted);font-size:13px}
-@media(max-width:390px){.museum-grid{grid-template-columns:1fr}}
+/* Day 9: Bossy Birthday Girl */
+.royal-section{margin:42px 0}.royal-card{max-width:720px;margin:auto;background:linear-gradient(135deg,#fff,#fff4f8);border:1px solid var(--line);border-radius:26px;padding:24px;box-shadow:var(--shadow);text-align:center}.royal-card .crown{font-size:38px}.royal-card h2{font-family:'Playfair Display',serif;margin:8px 0;font-size:28px}.royal-card .royal-sub{color:var(--muted);margin:0 auto 18px;line-height:1.6;max-width:520px}.royal-commands{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.royal-command{border:1px solid var(--line);background:#fff;border-radius:16px;padding:14px 12px;color:var(--ink);font:600 14px 'DM Sans';cursor:pointer;transition:transform .18s,background .18s}.royal-command:hover{transform:translateY(-2px);background:var(--blush)}.royal-response{display:none;margin:17px 0 0;padding:17px;border-radius:18px;background:var(--blush);color:var(--ink);line-height:1.65;animation:pop .22s ease}.royal-response.show{display:block}.royal-response small{display:block;color:var(--hot);font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}.royal-reset{margin-top:12px}@media(max-width:420px){.royal-commands{grid-template-columns:1fr}}
 
 </style>
 </head>
 <body>
-<div class="entry-screen" id="entryScreen" role="dialog" aria-label="Secret birthday entry">
-  <div class="entry-hearts" aria-hidden="true"><span>♡</span><span>✦</span><span>♡</span><span>✧</span></div>
-  <div class="entry-card">
-    <div class="entry-stamp">🚨 Top secret entry 🚨</div>
-    <h2>Are you really<br>the birthday girl?</h2>
-    <p>This website contains excessive amounts of affection, nonsense, and one slightly annoying human. Proceed only if you are the certified cutie.</p>
-    <div class="entry-actions">
-      <button class="btn" id="entryYes">Yes, obviously 💅</button>
-      <button class="btn entry-no" id="entryNo">No, I came for snacks 🍰</button>
-    </div>
-    <div class="entry-reply" id="entryReply" aria-live="polite"></div>
-  </div>
-</div>
 <div class="heart">♡</div><div class="heart">✦</div><div class="heart">♡</div><div class="heart">✧</div>
 <main>
   <div class="topline">a tiny website • a very big secret</div>
@@ -110,49 +40,6 @@ main{width:min(920px,92vw);margin:auto;padding:28px 0 60px;position:relative;z-i
     <div class="section-heading"><h2>Today's little message 💌</h2><p>New day, new nonsense. Love, your favourite headache.</p></div>
     <div class="card daily"><div class="daylabel" id="dayLabel">Countdown day</div><p id="dailyMessage">Loading your daily dose of affection and questionable humour...</p><small>Come back tomorrow. I have a schedule now apparently.</small></div>
   </section>
-  <section class="section" id="complimentRoulette">
-    <div class="section-heading"><h2>A little happiness dispenser 🎀</h2><p>Feeling a little meh? Or just want attention? 👀</p></div>
-    <div class="card roulette-card" id="rouletteCard">
-      <h3>Unlimited compliments. Unfortunately for you.</h3>
-      <p class="intro">Tap the button whenever you need a tiny reminder of how wonderful you are.</p>
-      <div class="compliment-text" id="complimentText" aria-live="polite">Your compliment is waiting. Go on, tap it. 💌</div>
-      <button class="btn roulette-btn" id="complimentBtn">Compliment me 🎀</button>
-    </div>
-  </section>
-
-
-  <section class="section" id="royalTreatment">
-    <div class="section-heading"><h2>The Birthday Girl's Royal Treatment 👑</h2><p>Today's rules are simple: you are the main character. Everyone else can adjust.</p></div>
-    <div class="card royal-card">
-      <span class="royal-crown" id="royalCrown" aria-hidden="true">👑</span>
-      <h3>Today's Royal Decree</h3>
-      <p class="royal-intro">By order of the very official Birthday Committee, you are hereby granted unlimited permission to be celebrated, spoiled, and a little dramatic.</p>
-      <div class="royal-subtitle">First, how is her royal highness feeling?</div>
-      <div class="mood-actions" role="group" aria-label="Choose your mood">
-        <button class="btn secondary mood-btn" data-mood="happy">Happy ✨</button>
-        <button class="btn secondary mood-btn" data-mood="meh">A little meh 🌧️</button>
-        <button class="btn secondary mood-btn" data-mood="chaotic">Chaotic 💅</button>
-      </div>
-      <div class="royal-result" id="moodResult" aria-live="polite">Choose your mood, Your Highness. The royal response team is ready. 💌</div>
-      <div class="royal-bottom">
-        <button class="btn" id="crownBtn">Crown yourself 👑</button>
-        <button class="btn secondary" id="privilegeBtn">Reveal today's royal privilege 🎁</button>
-      </div>
-      <div class="royal-result" id="privilegeResult" aria-live="polite" hidden></div>
-    </div>
-  </section>
-
-  <section class="section" id="fortuneTeller">
-    <div class="section-heading"><h2>The Birthday Girl's Fortune Teller 🔮</h2><p>A tiny prediction from the universe. The universe is suspiciously on your side.</p></div>
-    <div class="card fortune-card">
-      <div class="fortune-orb" id="fortuneOrb" aria-hidden="true">🔮</div>
-      <h3>What does today have in store?</h3>
-      <p class="fortune-intro">Tap below to reveal your very official, slightly questionable fortune for today.</p>
-      <div class="fortune-result" id="fortuneResult" aria-live="polite">Your fortune is hiding in the stars. Ready to peek? ✨</div>
-      <button class="btn fortune-btn" id="fortuneBtn">Reveal my fortune ✨</button>
-    </div>
-  </section>
-
   <section class="section">
     <div class="section-heading"><h2>Things you may click 👀</h2><p>Some are ready. Some are being suspiciously prepared.</p></div>
     <div class="grid">
@@ -162,33 +49,25 @@ main{width:min(920px,92vw);margin:auto;padding:28px 0 60px;position:relative;z-i
     </div>
   </section>
 
-  <section class="section" id="littleMuseum">
-    <div class="section-heading"><h2>The Birthday Girl's Little Museum 🏛️</h2><p>Four exhibits. One very special human. Tap an exhibit to read its tiny plaque ♡</p></div>
-    <div class="museum-grid">
-      <div class="card museum-exhibit" id="smileExhibit"><div class="emoji">🌷</div><h3>The Smile Collection</h3><p>Rare exhibits. Extremely contagious happiness.</p></div>
-      <div class="card museum-exhibit" id="prettyExhibit"><div class="emoji">👑</div><h3>The Pretty Privilege</h3><p>Effortlessly unfair levels of pretty.</p></div>
-      <div class="card museum-exhibit" id="softExhibit"><div class="emoji">🧸</div><h3>The Softness Archive</h3><p>Some mysteries remain undiscovered.</p></div>
-      <div class="card museum-exhibit" id="chaosExhibit"><div class="emoji">✨</div><h3>The Chaos Department</h3><p>Management is… you. Obviously.</p></div>
+  <section class="section royal-section" id="royalPrivileges">
+    <div class="section-heading"><h2>Today's Royal Privilege 👑</h2><p>Birthday girl has temporary authority over the entire universe.</p></div>
+    <div class="royal-card">
+      <div class="crown">👑</div><h2>The Bossy Birthday Girl</h2>
+      <p class="royal-sub">Choose your royal command, Your Highness. The birthday department will respond immediately (and with questionable professionalism).</p>
+      <div class="royal-commands">
+        <button class="royal-command" data-command="snacks">🍟 I demand snacks</button>
+        <button class="royal-command" data-command="attention">🥺 I need attention</button>
+        <button class="royal-command" data-command="compliments">😌 I want compliments</button>
+        <button class="royal-command" data-command="chaos">😈 Cause chaos</button>
+      </div>
+      <div class="royal-response" id="royalResponse" aria-live="polite"><small id="royalResponseLabel">Royal decree received</small><span id="royalResponseText"></span></div>
+      <button class="btn secondary royal-reset" id="royalReset" type="button">Issue another royal command ♡</button>
     </div>
   </section>
-
   <div class="footer">Made with <strong>♡</strong>, a little mischief, and an unreasonable amount of excitement.</div>
 </main>
 <div class="modal-backdrop" id="modalBackdrop"><div class="modal"><div id="modalEmoji" style="font-size:38px">💌</div><h3 id="modalTitle">A message for you</h3><p id="modalText"></p><button class="btn close" id="closeModal">Close (for now) ♡</button></div></div>
 <script>
-
-// Day 1 welcome gate
-const entryScreen=document.getElementById('entryScreen');
-const entryReply=document.getElementById('entryReply');
-document.getElementById('entryYes').onclick=()=>{
-  entryReply.textContent='Identity verified. Cuteness levels dangerously high. 💗';
-  document.getElementById('entryYes').textContent='Verified! 💖';
-  setTimeout(()=>entryScreen.classList.add('hidden'),650);
-};
-document.getElementById('entryNo').onclick=()=>{
-  entryReply.textContent='Wrong answer 😂 Nice try. You are STILL the birthday girl. Try again!';
-};
-
 // Birthday assumed: 23 December 2026. Change BIRTHDAY below if needed.
 const BIRTHDAY = new Date('2026-12-23T00:00:00');
 const START = new Date('2026-11-23T00:00:00');
@@ -228,68 +107,19 @@ const pad=n=>String(n).padStart(2,'0');
 function updateCountdown(){const now=new Date();let diff=BIRTHDAY-now;if(diff<0)diff=0;const d=Math.floor(diff/86400000),h=Math.floor(diff/3600000)%24,m=Math.floor(diff/60000)%60,s=Math.floor(diff/1000)%60;document.getElementById('days').textContent=pad(d);document.getElementById('hours').textContent=pad(h);document.getElementById('minutes').textContent=pad(m);document.getElementById('seconds').textContent=pad(s);if(diff===0)document.getElementById('countdownNote').textContent='IT IS YOUR DAY!! 🎂';}
 function dailyMessage(){const now=new Date();const day=Math.max(0,Math.floor((new Date(now.getFullYear(),now.getMonth(),now.getDate())-START)/86400000));const index=Math.min(day,messages.length-1);document.getElementById('dayLabel').textContent=`Countdown day ${Math.min(day+1,30)} ♡`;document.getElementById('dailyMessage').textContent=messages[index]||messages[0];}
 updateCountdown();dailyMessage();setInterval(updateCountdown,1000);
-// Day 2: Compliment Roulette (no consecutive repeats)
-const compliments=[
-  "Your smile is a public service. I am the president of its fan club.",
-  "You are someone's favourite part of every day. Guess who? 👀",
-  "If cuteness were illegal, you would be working overtime in jail.",
-  "You make my ordinary days suspiciously special.",
-  "In case today forgot to tell you: you are doing better than you think, cutie.",
-  "You have no idea how effortlessly you make someone's day better. Someone = me, obviously.",
-  "You deserve a hug right now. This website can't deliver one. I can, though. 🤭",
-  "Out of all the people in this world, my brain picked you and refuses to reconsider.",
-  "Your laugh is dangerously effective. I have absolutely no defence.",
-  "Tiny reminder: you are pretty, precious, and very much appreciated. ♡"
-];
-let lastCompliment=-1;
-const complimentText=document.getElementById('complimentText');
-function popHearts(){const card=document.getElementById('rouletteCard');['♡','💗','✦'].forEach((symbol,i)=>{const heart=document.createElement('span');heart.className='heart-pop';heart.textContent=symbol;heart.style.left=(35+i*15)+'%';heart.style.top='65%';heart.style.animationDelay=(i*.08)+'s';card.appendChild(heart);setTimeout(()=>heart.remove(),1100);});}
-document.getElementById('complimentBtn').onclick=()=>{let next;do{next=Math.floor(Math.random()*compliments.length)}while(next===lastCompliment);lastCompliment=next;complimentText.style.opacity='0';setTimeout(()=>{complimentText.textContent=compliments[next];complimentText.style.opacity='1';},150);popHearts();};
-
-
-// Day 4: Birthday Girl Royal Treatment
-const royalReplies={
-  happy:"Excellent. The kingdom is thriving because its favourite person is happy. Please continue being iconic. ✨",
-  meh:"Royal order: absolutely no being mean to yourself today. Take a breath, get something nice, and remember you're wonderful. 💗",
-  chaotic:"The royal committee approves this level of drama. Proceed with confidence, sparkle, and maybe snacks. 💅"
-};
-document.querySelectorAll('.mood-btn').forEach(button=>{button.addEventListener('click',()=>{document.getElementById('moodResult').textContent=royalReplies[button.dataset.mood];});});
-document.getElementById('crownBtn').onclick=()=>{const crown=document.getElementById('royalCrown');crown.classList.remove('crown-pop');void crown.offsetWidth;crown.classList.add('crown-pop');document.getElementById('moodResult').textContent='Crown successfully placed. The birthday girl is now officially royalty. No appeals will be entertained. 👑💖';};
-const royalPrivileges=[
-  "You are officially allowed to ignore one boring task and take a happiness break. Snacks encouraged. 🍰",
-  "You get unlimited main-character energy today. Dramatic entrances are permitted. ✨",
-  "Today's royal privilege: choosing the food without having to say 'anything is fine'. 👑",
-  "You are exempt from comparing yourself to anyone. The kingdom has already decided you're one of a kind. 💗",
-  "A mandatory 10-minute treat break has been approved. This decree is legally binding (in this tiny website). 🍓",
-  "You may ask for extra affection today. The royal committee strongly recommends it. 💌",
-  "Today, you are allowed to celebrate even the smallest win. Especially the small ones. 🌷"
-];
-const privilegeDay=Math.floor((new Date(new Date().toLocaleString('en-US',{timeZone:'Asia/Kolkata'})).setHours(0,0,0,0)-START.getTime())/86400000);
-document.getElementById('privilegeBtn').onclick=()=>{const result=document.getElementById('privilegeResult');result.hidden=false;result.textContent=royalPrivileges[((Math.max(0,privilegeDay))%royalPrivileges.length)];};
-
-// Day 6: Birthday Girl Fortune Teller (no consecutive repeats)
-const fortunes=[
-  "Someone is planning something for you. This someone is terrible at keeping secrets. 🎁",
-  "Today's prediction: you will look unnecessarily pretty and cause at least one person to forget what they were saying. 👑",
-  "A delicious meal is approaching your destiny. Choose wisely. 🍟",
-  "You will receive an unexpected dose of affection. Complaints will not be accepted. 💗",
-  "The stars recommend rest, snacks, and absolutely zero guilt. 💤",
-  "Your future contains a surprise. The fortune teller has been bribed into silence. 🤫",
-  "A tiny win is on its way. Celebrate it like the headline news it deserves. ✨",
-  "Today is a good day to be unapologetically yourself. The universe has excellent taste. 🌷"
-];
-let lastFortune=-1;
-document.getElementById('fortuneBtn').onclick=()=>{let pick;do{pick=Math.floor(Math.random()*fortunes.length)}while(pick===lastFortune);lastFortune=pick;const result=document.getElementById('fortuneResult');result.classList.remove('reveal');void result.offsetWidth;result.textContent=fortunes[pick];result.classList.add('reveal');const orb=document.getElementById('fortuneOrb');orb.classList.remove('crown-pop');void orb.offsetWidth;orb.classList.add('crown-pop');};
-
 const backdrop=document.getElementById('modalBackdrop');function showModal(emoji,title,txt){document.getElementById('modalEmoji').textContent=emoji;document.getElementById('modalTitle').textContent=title;document.getElementById('modalText').textContent=txt;backdrop.classList.add('show')}function closeModal(){backdrop.classList.remove('show')}
-document.getElementById('welcomeBtn').onclick=()=>showModal('🙃','Welcome to the nonsense','This website exists because I wanted to make you smile before your birthday. I will be adding little things as the countdown goes on. You are not allowed to interrogate the birthday department.');document.getElementById('reasonCard').onclick=()=>showModal('💗','Reason #1','You have this way of making a normal day feel better just by being part of it. And yes, I am being cheesy. Let me live.');document.getElementById('mysteryCard').onclick=()=>showModal('🎁','Not yet, detective!','This box is currently under extremely secret construction. Come back later. Your curiosity is noted and mildly encouraged.');document.getElementById('secretCard').onclick=()=>showModal('🔐','Classified information','Access denied. The birthday committee has confiscated this message. Try again closer to the big day.');
-// Day 7: Museum exhibit cards (text-only, no photos)
-document.getElementById('smileExhibit').onclick=()=>showModal('🌷','The Smile Collection','Some smiles make times brighter, some smiles make life happier. But yours does both — it makes me happy, makes me smile, and makes everything brighter.');
-document.getElementById('prettyExhibit').onclick=()=>showModal('👑','The Pretty Privilege','People have to try hard to look pretty, but then there’s you, looking pretty without even trying. And somehow, you make me look pretty just by being with you.');
-document.getElementById('softExhibit').onclick=()=>showModal('🧸','The Softness Archive','Hehe… yet to be found 😊');
-document.getElementById('chaosExhibit').onclick=()=>showModal('✨','The Chaos Department','Your head of itttt, cutieee 😂');
+document.getElementById('welcomeBtn').onclick=()=>showModal('🙃','Welcome to the nonsense','This website exists because I wanted to make you smile before your birthday. I will be adding little things as the countdown goes on. You are not allowed to interrogate the birthday department.');document.getElementById('reasonCard').onclick=()=>showModal('💗','Reason #1','You have this way of making a normal day feel better just by being part of it. And yes, I am being cheesy. Let me live.');document.getElementById('mysteryCard').onclick=()=>showModal('🎁','Not yet, detective!','This box is currently under extremely secret construction. Come back later. Your curiosity is noted and mildly encouraged.');document.getElementById('secretCard').onclick=()=>showModal('🔐','Classified information','Access denied. The birthday committee has confiscated this message. Try again closer to the big day.');document.getElementById('closeModal').onclick=closeModal;backdrop.onclick=e=>{if(e.target===backdrop)closeModal()};document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
 
-document.getElementById('closeModal').onclick=closeModal;backdrop.onclick=e=>{if(e.target===backdrop)closeModal()};document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+// Day 9: royal command interaction
+const royalReplies={
+ snacks:'Approved. Budget denied. Emotional support snacks approved without budget. 🍟',
+ attention:'Attention has been redirected to you. All other operations suspended. 🥺',
+ compliments:'You opened this website and still need compliments? Fine. You are ridiculously pretty. Happy now? No? Here is another one: you are also ridiculously adorable. 😌💗',
+ chaos:'Permission granted. But please remember you are cute enough to escape consequences. Proceed, tiny menace. 😈'
+};
+document.querySelectorAll('.royal-command').forEach(button=>{button.addEventListener('click',()=>{const response=document.getElementById('royalResponse');document.getElementById('royalResponseText').textContent=royalReplies[button.dataset.command];response.classList.add('show');});});
+document.getElementById('royalReset').addEventListener('click',()=>{document.getElementById('royalResponse').classList.remove('show');});
+
 </script>
 </body>
 </html>
